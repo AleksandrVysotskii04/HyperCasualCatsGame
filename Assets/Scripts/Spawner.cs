@@ -1,0 +1,16 @@
+using UnityEngine;
+
+public class Spawner : MonoBehaviour
+{
+    public GameObject obstacle;
+    public Transform[] pos;
+    void Start()
+    {
+        InvokeRepeating("SpawnObstacle", 4, 4);
+    }
+    public void SpawnObstacle()
+    {
+        Instantiate(obstacle, pos[Random.Range(0, pos.Length)].position, Quaternion.identity);
+    }
+
+}
