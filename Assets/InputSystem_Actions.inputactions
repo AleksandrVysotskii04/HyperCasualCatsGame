@@ -1019,7 +1019,7 @@
                 {
                     "name": "",
                     "id": "35a8b094-71d3-431a-9be1-f17d09ca162e",
-                    "path": "<Pointer>/delta",
+                    "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse;Touch",
@@ -1030,7 +1030,7 @@
                 {
                     "name": "",
                     "id": "0c8db54a-ebea-4e97-bbee-c017516cf4c9",
-                    "path": "<Pointer>/press",
+                    "path": "<Touchscreen>/primaryTouch/tap",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse;Touch",

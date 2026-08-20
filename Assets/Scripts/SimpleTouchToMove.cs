@@ -3,26 +3,37 @@ using UnityEngine.InputSystem;
 
 public class SimpleTouchToMove : MonoBehaviour
 {
-    public float speed;
     public float Xmin;
     public float Xmax;
 
     [Header("Input Actions")]
-    // Ссылки на действия, которые мы настроим в редакторе Unity
     public InputActionReference pressAction;
     public InputActionReference deltaAction;
 
+    public CharacterController characterController;
+
+
+    Vector2 initPos;
+    Vector2 direction;
+    Vector3 moveDirection;
+    public float speed = 5.0f;
+    bool canMove = false;
+    public float gravity = -10.0f;
+
+
     void Update()
     {
-        // Проверяем, выполняется ли действие нажатия (IsPressed)
         if (pressAction != null && pressAction.action.IsPressed())
         {
-            // Читаем значение смещения из действия delta
-            Vector2 delta = deltaAction.action.ReadValue<Vector2>();
+            canMove = true;
+            //Movement calculation
 
-            float newX = transform.position.x + delta.x * speed;
-            newX = Mathf.Clamp(newX, Xmin, Xmax);
-            transform.position = new Vector3(newX, transform.position.y, transform.position.z);
+
+        }
+        else
+        {
+            canMove = false;
+            moveDirection = Vector3.zero;
         }
     }
 }
