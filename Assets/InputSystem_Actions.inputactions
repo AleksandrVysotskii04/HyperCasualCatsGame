@@ -1037,6 +1037,17 @@
                     "action": "PressAction",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f48573ab-8043-4574-8a2d-6f5267ae5aa1",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "PressAction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
