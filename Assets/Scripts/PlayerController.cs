@@ -1,8 +1,12 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
+    public static event Action OnPlayerStartedMoving;
+    private bool hasStartedMoving = false;
+    public GameManager gm;
     public float playerSpeed = 0.1f;
     private float jumpHeight = 1.5f;
     private float gravityValue = -9.81f;
@@ -47,7 +51,14 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("isRunning", move != Vector3.zero);
 
         if (move != Vector3.zero)
+        {
+            if (!hasStartedMoving)
+            {
+                hasStartedMoving = true;
+                OnPlayerStartedMoving?.Invoke();
+            }
             transform.forward = move;
+        }
 
         // Jump using WasPressedThisFrame()
         if (groundedPlayer && jumpAction.action.WasPressedThisFrame())
@@ -59,7 +70,10 @@ public class PlayerController : MonoBehaviour
         playerVelocity.y += gravityValue * Time.deltaTime;
 
         // Move
-        Vector3 finalMove = move * playerSpeed + Vector3.up * playerVelocity.y;
-        controller.Move(finalMove * Time.deltaTime);
+        if (!gm.gameEnded && gm.gameStarted)
+        {
+            Vector3 finalMove = move * playerSpeed + Vector3.up * playerVelocity.y;
+            controller.Move(finalMove * Time.deltaTime);
+        }
     }
 }
