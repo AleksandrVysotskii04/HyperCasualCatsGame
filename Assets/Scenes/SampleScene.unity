@@ -2842,6 +2842,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6020308598444310925, guid: 44a0de0f766c9634eb66f1d56b7edc9d, type: 3}
   m_PrefabInstance: {fileID: 1114654227}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1078262398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078262389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 100decebc0ba24129817c206e6326d8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CatSkin
+  skins:
+  - {fileID: 2800000, guid: 5bf4d5ffdfd914a48be4d1bf61c86666, type: 3}
+  - {fileID: 2800000, guid: 07a6e2e698581401b9e33c0547adcd0e, type: 3}
+  catMaterial: {fileID: 2100000, guid: f6730b960ba6c914e9141395fc93249f, type: 2}
+  selectedSkin: 0
 --- !u!1 &1092033837
 GameObject:
   m_ObjectHideFlags: 0
@@ -3236,6 +3253,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6397291155531275063, guid: 44a0de0f766c9634eb66f1d56b7edc9d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1078262395}
+    - targetCorrespondingSourceObject: {fileID: 6397291155531275063, guid: 44a0de0f766c9634eb66f1d56b7edc9d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1078262398}
   m_SourcePrefab: {fileID: 100100000, guid: 44a0de0f766c9634eb66f1d56b7edc9d, type: 3}
 --- !u!1 &1156899805
 GameObject:
@@ -5770,6 +5790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
   shop: {fileID: 1820968410}
+  cs: {fileID: 1078262398}
 --- !u!114 &1820968413
 MonoBehaviour:
   m_ObjectHideFlags: 0
