@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,7 +10,10 @@ public class GameManager : MonoBehaviour
     public GameObject[] rooms;
     public GameObject[] tutorials;
     public GameObject screenEnd;
+    public TextMeshProUGUI textTimer;
     public TextMeshProUGUI textScore;
+    public TextMeshProUGUI textBestScore;
+    public TextMeshProUGUI textScoreFinal;
     public int timerVal = 30;
     private void Awake()
     {
@@ -20,6 +24,7 @@ public class GameManager : MonoBehaviour
                 rooms[i].SetActive(true);
             }
         }
+        textBestScore.text = "Best: " + PlayerPrefs.GetInt("scoreMax", 0);
     }
     // private void OnEnable()
     // {
@@ -50,18 +55,22 @@ public class GameManager : MonoBehaviour
     }
     public void RestartGame()
     {
+        int scoreReal = int.Parse(textScore.text);
+        int scoreMax = PlayerPrefs.GetInt("scoreMax", 0);
+        PlayerPrefs.SetInt("scoreMax", Math.Max(scoreReal, scoreMax));
         timerVal = 30;
         Application.LoadLevel(Application.loadedLevelName);
     }
     public void SetTimer()
     {
         timerVal--;
-        textScore.text = timerVal.ToString();
+        textTimer.text = timerVal.ToString();
         if (timerVal == 0)
         {
             gameEnded = true;
             CancelInvoke();
             screenEnd.SetActive(true);
+            textScoreFinal.text = "Score: " + textScore.text;
         }
     }
     public void WatchExtraTimeVideo()
