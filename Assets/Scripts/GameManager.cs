@@ -21,16 +21,16 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-    private void OnEnable()
-    {
-        PlayerController.OnPlayerStartedMoving += HideTutorial;
-    }
+    // private void OnEnable()
+    // {
+    //     PlayerController.OnPlayerStartedMoving += HideTutorial;
+    // }
 
-    private void OnDisable()
-    {
-        PlayerController.OnPlayerStartedMoving -= HideTutorial;
-    }
-    private void HideTutorial()
+    // private void OnDisable()
+    // {
+    //     PlayerController.OnPlayerStartedMoving -= HideTutorial;
+    // }
+    public void StartGame()
     {
         if (tutorials[0] != null)
         {
@@ -38,7 +38,12 @@ public class GameManager : MonoBehaviour
         }
         gameStarted = true;
         InvokeRepeating("SetTimer", 1, 1);
+
     }
+    // private void HideTutorial()
+    // {
+
+    // }
     public void Update()
     {
 

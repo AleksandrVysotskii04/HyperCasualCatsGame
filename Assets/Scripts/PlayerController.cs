@@ -4,8 +4,8 @@ using System;
 
 public class PlayerController : MonoBehaviour
 {
-    public static event Action OnPlayerStartedMoving;
-    private bool hasStartedMoving = false;
+    // public static event Action OnPlayerStartedMoving;
+    // private bool hasStartedMoving = false;
     public GameManager gm;
     public float playerSpeed = 0.1f;
     private float jumpHeight = 1.5f;
@@ -52,11 +52,11 @@ public class PlayerController : MonoBehaviour
 
         if (move != Vector3.zero)
         {
-            if (!hasStartedMoving)
-            {
-                hasStartedMoving = true;
-                OnPlayerStartedMoving?.Invoke();
-            }
+            // if (!hasStartedMoving)
+            // {
+            //     hasStartedMoving = true;
+            //     OnPlayerStartedMoving?.Invoke();
+            // }
             transform.forward = move;
         }
 
